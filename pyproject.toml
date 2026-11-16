@@ -1,0 +1,27 @@
+[project]
+name = "seo-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "RayaKhabiri", email = "khabiri.raya@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "langchain[mcp]>=1.4.9",
+    "langchain-openai>=1.7.4",
+    "python-dotenv>=1.2.4",
+    "google-auth>=2.62.1",
+    "google-api-python-client>=2.201.0",
+    "tzdata>=2026.6",
+    "gradio>=6.31.0",
+    "fastapi>=0.162.2",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+seo-agent = "seo_agent:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
