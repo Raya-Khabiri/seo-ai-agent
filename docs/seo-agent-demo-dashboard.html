@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>DemoStore SEO Performance Dashboard — Synthetic Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: system-ui, Tahoma, sans-serif;
+            background: #f5f6f8;
+            color: #1f2933;
+            margin: 0;
+            padding: 32px;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            margin: 0 0 4px;
+            font-size: 26px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 32px 0 12px;
+        }
+
+        h3 {
+            font-size: 15px;
+            margin: 0 0 12px;
+        }
+
+        .period {
+            color: #6b7280;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+        }
+
+        .summary {
+            margin-top: 24px;
+            line-height: 1.8;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+
+        .charts {
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+        }
+
+        .label {
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .value {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 6px 0;
+        }
+
+        .good {
+            color: #15803d;
+        }
+
+        .bad {
+            color: #b91c1c;
+        }
+
+        .neutral {
+            color: #6b7280;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            text-align: start;
+        }
+
+        th {
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 10px;
+            border-radius: 999px;
+            margin-inline-start: 8px;
+        }
+
+        .tag.high {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .tag.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .tag.low {
+            background: #e0f2fe;
+            color: #075985;
+        }
+
+        .rec {
+            margin-bottom: 12px;
+        }
+
+        .rec p {
+            margin: 8px 0 0;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>DemoStore SEO Performance Dashboard</h1>
+        <div class="period">DEMO / SYNTHETIC DATA — Illustrative example only; not actual website performance.</div>
+        <div class="period">Example reporting period: 1–30 September 2026, compared with 2–31 August 2026.</div>
+        <div class="card summary">This sample illustrates how the SEO Agent summarizes organic performance, identifies
+            low-CTR opportunities, and prioritizes practical recommendations. All website names, URLs, queries and
+            metrics below are fictional.</div>
+        <h2>Key metrics</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="label">Organic clicks</div>
+                <div class="value">480</div>
+                <div class="good">+20.0% vs prior 30 days</div>
+            </div>
+            <div class="card">
+                <div class="label">Impressions</div>
+                <div class="value">12,000</div>
+                <div class="good">+25.0% vs prior 30 days</div>
+            </div>
+            <div class="card">
+                <div class="label">CTR</div>
+                <div class="value">4.00%</div>
+                <div class="bad">-0.17 percentage points</div>
+            </div>
+            <div class="card">
+                <div class="label">Average position</div>
+                <div class="value">11.8</div>
+                <div class="good">Improved 1.2 positions</div>
+            </div>
+        </div>
+        <div class="grid charts" style="margin-top: 24px">
+            <div class="card">
+                <h3>Daily organic clicks</h3><canvas id="chart0"></canvas>
+                <script>new Chart(document.getElementById("chart0"), { "type": "line", "data": { "labels": ["Sep 1", "Sep 2", "Sep 3", "Sep 4", "Sep 5", "Sep 6", "Sep 7", "Sep 8", "Sep 9", "Sep 10", "Sep 11", "Sep 12", "Sep 13", "Sep 14", "Sep 15", "Sep 16", "Sep 17", "Sep 18", "Sep 19", "Sep 20", "Sep 21", "Sep 22", "Sep 23", "Sep 24", "Sep 25", "Sep 26", "Sep 27", "Sep 28", "Sep 29", "Sep 30"], "datasets": [{ "data": [10, 12, 14, 16, 12, 15, 18, 17, 19, 16, 13, 15, 18, 20, 14, 15, 17, 19, 18, 15, 16, 14, 17, 18, 16, 15, 20, 19, 18, 14], "borderColor": "#2563eb", "backgroundColor": "rgba(37, 99, 235, 0.2)", "tension": 0.3 }] }, "options": { "plugins": { "legend": { "display": false } }, "scales": { "y": { "reverse": false } } } });</script>
+            </div>
+            <div class="card">
+                <h3>Daily organic impressions</h3><canvas id="chart1"></canvas>
+                <script>new Chart(document.getElementById("chart1"), { "type": "line", "data": { "labels": ["Sep 1", "Sep 2", "Sep 3", "Sep 4", "Sep 5", "Sep 6", "Sep 7", "Sep 8", "Sep 9", "Sep 10", "Sep 11", "Sep 12", "Sep 13", "Sep 14", "Sep 15", "Sep 16", "Sep 17", "Sep 18", "Sep 19", "Sep 20", "Sep 21", "Sep 22", "Sep 23", "Sep 24", "Sep 25", "Sep 26", "Sep 27", "Sep 28", "Sep 29", "Sep 30"], "datasets": [{ "data": [351, 372, 392, 412, 422, 382, 402, 422, 392, 412, 372, 402, 432, 392, 412, 422, 382, 402, 412, 392, 422, 372, 412, 432, 382, 402, 412, 392, 402, 393], "borderColor": "#2563eb", "backgroundColor": "rgba(37, 99, 235, 0.2)", "tension": 0.3 }] }, "options": { "plugins": { "legend": { "display": false } }, "scales": { "y": { "reverse": false } } } });</script>
+            </div>
+            <div class="card">
+                <h3>Top landing pages by organic clicks</h3><canvas id="chart2"></canvas>
+                <script>new Chart(document.getElementById("chart2"), { "type": "bar", "data": { "labels": ["/products", "/guides/product-selection", "/", "/blog/shipping-tips", "/collections/new-arrivals"], "datasets": [{ "data": [180, 110, 75, 60, 35], "borderColor": "#2563eb", "backgroundColor": "rgba(37, 99, 235, 0.2)", "tension": 0.3 }] }, "options": { "plugins": { "legend": { "display": false } }, "scales": { "y": { "reverse": false } } } });</script>
+            </div>
+            <div class="card">
+                <h3>Average position by device (lower is better)</h3><canvas id="chart3"></canvas>
+                <script>new Chart(document.getElementById("chart3"), { "type": "bar", "data": { "labels": ["Mobile", "Desktop", "Tablet"], "datasets": [{ "data": [10.5, 13.2, 15.1], "borderColor": "#2563eb", "backgroundColor": "rgba(37, 99, 235, 0.2)", "tension": 0.3 }] }, "options": { "plugins": { "legend": { "display": false } }, "scales": { "y": { "reverse": true } } } });</script>
+            </div>
+        </div>
+        <h2>Organic landing pages: sample period</h2>
+        <div class="card">
+            <table>
+                <tr>
+                    <th>Landing page</th>
+                    <th>Clicks</th>
+                    <th>Impressions</th>
+                    <th>CTR</th>
+                    <th>Avg. position</th>
+                    <th>Click change</th>
+                </tr>
+                <tr>
+                    <td>/products</td>
+                    <td>180</td>
+                    <td>2,500</td>
+                    <td>7.20%</td>
+                    <td>5.4</td>
+                    <td>+45</td>
+                </tr>
+                <tr>
+                    <td>/guides/product-selection</td>
+                    <td>110</td>
+                    <td>3,000</td>
+                    <td>3.67%</td>
+                    <td>8.2</td>
+                    <td>+20</td>
+                </tr>
+                <tr>
+                    <td>/</td>
+                    <td>75</td>
+                    <td>1,500</td>
+                    <td>5.00%</td>
+                    <td>4.1</td>
+                    <td>+10</td>
+                </tr>
+                <tr>
+                    <td>/blog/shipping-tips</td>
+                    <td>60</td>
+                    <td>2,000</td>
+                    <td>3.00%</td>
+                    <td>9.6</td>
+                    <td>+5</td>
+                </tr>
+                <tr>
+                    <td>/collections/new-arrivals</td>
+                    <td>35</td>
+                    <td>1,500</td>
+                    <td>2.33%</td>
+                    <td>12.1</td>
+                    <td>+5</td>
+                </tr>
+            </table>
+        </div>
+        <h2>Selected queries and CTR opportunities</h2>
+        <div class="card">
+            <table>
+                <tr>
+                    <th>Query</th>
+                    <th>Clicks</th>
+                    <th>Impressions</th>
+                    <th>CTR</th>
+                    <th>Avg. position</th>
+                    <th>Change in clicks</th>
+                </tr>
+                <tr>
+                    <td>buy eco-friendly accessories</td>
+                    <td>80</td>
+                    <td>1000</td>
+                    <td>8.00%</td>
+                    <td>4.8</td>
+                    <td>+25</td>
+                </tr>
+                <tr>
+                    <td>how to choose a reusable bottle</td>
+                    <td>50</td>
+                    <td>1800</td>
+                    <td>2.78%</td>
+                    <td>7.2</td>
+                    <td>+10</td>
+                </tr>
+                <tr>
+                    <td>demostore</td>
+                    <td>45</td>
+                    <td>300</td>
+                    <td>15.00%</td>
+                    <td>1.3</td>
+                    <td>+8</td>
+                </tr>
+                <tr>
+                    <td>sustainable gift ideas</td>
+                    <td>15</td>
+                    <td>1200</td>
+                    <td>1.25%</td>
+                    <td>8.1</td>
+                    <td>-2</td>
+                </tr>
+                <tr>
+                    <td>eco accessories online</td>
+                    <td>10</td>
+                    <td>900</td>
+                    <td>1.11%</td>
+                    <td>9.4</td>
+                    <td>+3</td>
+                </tr>
+            </table>
+        </div>
+        <h2>Device performance</h2>
+        <div class="card">
+            <table>
+                <tr>
+                    <th>Device</th>
+                    <th>Clicks</th>
+                    <th>Impressions</th>
+                    <th>CTR</th>
+                    <th>Avg. position</th>
+                    <th>Click share</th>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td>300</td>
+                    <td>7000</td>
+                    <td>4.29%</td>
+                    <td>10.5</td>
+                    <td>62.5%</td>
+                </tr>
+                <tr>
+                    <td>Desktop</td>
+                    <td>170</td>
+                    <td>4500</td>
+                    <td>3.78%</td>
+                    <td>13.2</td>
+                    <td>35.4%</td>
+                </tr>
+                <tr>
+                    <td>Tablet</td>
+                    <td>10</td>
+                    <td>500</td>
+                    <td>2.00%</td>
+                    <td>15.1</td>
+                    <td>2.1%</td>
+                </tr>
+            </table>
+        </div>
+        <h2>Sitemap snapshot</h2>
+        <div class="card">
+            <table>
+                <tr>
+                    <th>Technical item</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Sitemap</td>
+                    <td>https://demostore.example/sitemap.xml</td>
+                </tr>
+                <tr>
+                    <td>Last downloaded by Google</td>
+                    <td>29 Sep 2026 (fictional)</td>
+                </tr>
+                <tr>
+                    <td>Sitemap errors / warnings</td>
+                    <td>0 / 0 (fictional)</td>
+                </tr>
+                <tr>
+                    <td>URLs submitted</td>
+                    <td>120 (fictional)</td>
+                </tr>
+                <tr>
+                    <td>Indexing status</td>
+                    <td>Example only — verify with live URL inspection</td>
+                </tr>
+            </table>
+        </div>
+        <h2>Recommendations</h2>
+        <div class="card rec"><strong>Improve snippets for informational queries</strong><span
+                class="tag high">high</span>
+            <p>The fictional guide page receives 3,000 impressions with a 3.67% CTR. Test clearer titles, concise meta
+                descriptions and answer-first page introductions.</p>
+        </div>
+        <div class="card rec"><strong>Strengthen internal links to the product hub</strong><span
+                class="tag high">high</span>
+            <p>The example /products page generates 180 organic clicks. Link relevant buying guides and collections to
+                product pages using descriptive anchor text.</p>
+        </div>
+        <div class="card rec"><strong>Refresh the sustainable gift ideas article</strong><span
+                class="tag medium">medium</span>
+            <p>The example query has 1,200 impressions but only 1.25% CTR. Align the article with gift-shopping intent
+                and add a scannable shortlist.</p>
+        </div>
+        <div class="card rec"><strong>Audit mobile purchase flow</strong><span class="tag medium">medium</span>
+            <p>Mobile accounts for 62.5% of example clicks. Check Core Web Vitals, product filters, mobile navigation
+                and checkout friction.</p>
+        </div>
+        <div class="card rec"><strong>Validate technical indexing</strong><span class="tag medium">medium</span>
+            <p>Use live Search Console URL Inspection before concluding that a page is indexed. The sitemap figures in
+                this demo are illustrative.</p>
+        </div>
+        <div class="card summary">DISCLAIMER: Entire report is a synthetic demonstration of the agent’s dashboard
+            format. Metrics and recommendations are illustrative and are not evidence of measured outcomes.</div>
+    </div>
+</body>
+
+</html>
