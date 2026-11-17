@@ -173,8 +173,6 @@ The agent never creates a dashboard on its own. Before `create_dashboard` runs, 
 | To-do list | The agent plans multi-step work with `write_todos`. |
 | `google_search` | Retrieves live Google search results through the Serper API. |
 
-> **Note on Serper:** the agent's system prompt mentions a `google_search` tool, but `tools.py` does not define one yet, so `SERPER_API_KEY` is not used by the current code. Add that tool before relying on live Google results.
-
 ## Example prompts
 
 - "List my Search Console sites."
