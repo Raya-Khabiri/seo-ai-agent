@@ -171,6 +171,7 @@ The agent never creates a dashboard on its own. Before `create_dashboard` runs, 
 | Google Analytics tools (MCP) | Account and property info and GA4 reports (`run_report`, `run_realtime_report` and more). |
 | Playwright tools (MCP) | Open pages, read content, click and take snapshots in a headless browser. |
 | To-do list | The agent plans multi-step work with `write_todos`. |
+| `google_search` | Retrieves live Google search results through the Serper API. |
 
 > **Note on Serper:** the agent's system prompt mentions a `google_search` tool, but `tools.py` does not define one yet, so `SERPER_API_KEY` is not used by the current code. Add that tool before relying on live Google results.
 
@@ -225,3 +226,33 @@ GitHub Actions automatically runs the test suite on every push and pull request.
 The CI workflow is defined in `.github/workflows/tests.yml`.
 
 [![Python Tests](https://github.com/Raya-Khabiri/seo-ai-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Raya-Khabiri/seo-ai-agent/actions/workflows/tests.yml)
+
+
+## Evaluation
+
+The project includes a lightweight evaluation framework
+for assessing SEO analysis quality.
+
+Evaluation dimensions include:
+- Factual accuracy
+- Evidence groundedness
+- Actionability
+- Uncertainty calibration
+- Hallucination detection
+
+A documented case study identified an incorrect
+interpretation of Google Search Console average position.
+
+The system prompt was revised, and a regression test
+was added to detect the known error pattern.
+
+A qualitative follow-up review showed improved ranking
+interpretation and uncertainty communication.
+
+See:
+- [Evaluation methodology](evaluation/README.md)
+- [Evaluation results](evaluation/results.md)
+- [Evaluation cases](evaluation/cases.json)
+
+**Limitation:** This evaluation is a qualitative case
+study, not a statistically validated accuracy benchmark.
