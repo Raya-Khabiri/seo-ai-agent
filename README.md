@@ -2,6 +2,23 @@
 
 SEO Agent is an AI assistant that answers SEO questions using your real data. You chat with it in a web page (or in the terminal), and it reads your Google Search Console and Google Analytics data, checks live pages with a browser, plans bigger jobs with a to-do list, and can build a shareable HTML dashboard. It speaks English and Persian.
 
+
+### Live Demo
+
+Explore an interactive SEO performance dashboard generated
+using the project's reporting architecture.
+
+**[View Interactive Dashboard](https://raya-khabiri.github.io/seo-ai-agent/seo-agent-demo-dashboard.html)**
+
+> **Note:** This demo uses synthetic data to illustrate
+> the agent's reporting capabilities. No private analytics
+> data is included.
+
+### Build Status
+
+[![Python Tests](https://github.com/Raya-Khabiri/seo-ai-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Raya-Khabiri/seo-ai-agent/actions/workflows/tests.yml)
+
+
 ## Features
 
 - **Search Console tools** – clicks, impressions, CTR, rankings, keyword opportunities, URL inspection and sitemaps.
