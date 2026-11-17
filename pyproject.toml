@@ -1,7 +1,16 @@
 [project]
 name = "seo-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "An AI-powered SEO analysis agent integrating Google Search Console, Google Analytics, live SERP research, and human-in-the-loop reporting."
+keywords = [
+    "seo",
+    "ai-agent",
+    "langchain",
+    "google-search-console",
+    "google-analytics",
+    "serp-analysis",
+    "human-in-the-loop",
+]
 readme = "README.md"
 authors = [
     { name = "RayaKhabiri", email = "khabiri.raya@gmail.com" }
@@ -25,3 +34,12 @@ seo-agent = "seo_agent:main"
 [build-system]
 requires = ["uv_build>=0.13.1,<0.14.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
