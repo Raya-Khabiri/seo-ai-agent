@@ -183,3 +183,28 @@ pyproject.toml  Project dependencies
 ## Security
 
 Never commit `.env` or anything in `credentials/`. They contain secrets that give access to your data and your paid APIs. The included `.gitignore` already excludes them. If a key ever leaks, delete it in its provider's console and create a new one.
+
+
+## Testing
+
+This project uses **pytest** for automated testing.
+
+Run the test suite locally:
+
+```bash
+uv sync
+uv run pytest -q
+```
+
+The tests cover:
+
+- SEO metric change calculations
+- Google SERP response parsing using mocked Serper API responses
+
+### Continuous Integration
+
+GitHub Actions automatically runs the test suite on every push and pull request.
+
+The CI workflow is defined in `.github/workflows/tests.yml`.
+
+[![Python Tests](https://github.com/Raya-Khabiri/seo-ai-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Raya-Khabiri/seo-ai-agent/actions/workflows/tests.yml)
