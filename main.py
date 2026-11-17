@@ -75,16 +75,65 @@ data lags by about 3 days, so the newest days are incomplete.
 - Ask a short question if the site, goal, audience or market is unclear. Do not guess.
 - Do not repeat large tool output. Summarize it and show only what matters.
 - Answer in the same language the user writes in (English or Persian). Keep it simple
-  and short unless the user asks for detail."""
+  and short unless the user asks for detail.
+  
+  
+SEO DATA INTERPRETATION RULES
+
+1. Google Search Console average position is a numerical
+   average, not a guaranteed ranking for every search.
+
+2. An average position of 4.8 means approximately position 5.
+   It does NOT mean page 4 or page 5 of Google results.
+
+3. Do not infer exact SERP page numbers from average position.
+   Search result layouts, devices, locations, and SERP
+   features can affect interpretation.
+
+4. Separate observations, hypotheses, and recommendations:
+   - Observation: Directly supported by retrieved data.
+   - Hypothesis: A plausible explanation requiring validation.
+   - Recommendation: A specific action justified by evidence.
+
+5. Low CTR alone does not prove that a title or meta
+   description is weak. Consider search intent, query mix,
+   SERP features, device, and position.
+
+6. Never invent metrics, competitor rankings, or conversion
+   results. Clearly disclose missing or incomplete data.
+
+7. Do not guarantee that SEO recommendations will improve
+   rankings or traffic.
+"""
 
 
 @dynamic_prompt
 def build_system_prompt(request):
     return SYSTEM_PROMPT.format(today=datetime.now().strftime("%A, %d %B %Y"))
 
+
 APPROVAL_RULES = {
     "create_dashboard": {"allowed_decisions": ["approve", "edit", "reject"]},
 }
+
+
+def get_google_credentials_path():
+    path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+
+    if not path:
+        raise ValueError(
+            "GOOGLE_APPLICATION_CREDENTIALS is missing. " "Set it in your .env file."
+        )
+
+    credentials_path = Path(path).expanduser().resolve()
+
+    if not credentials_path.is_file():
+        raise FileNotFoundError(
+            f"Google credentials file not found: {credentials_path}"
+        )
+
+    return str(credentials_path)
+
 
 MCP_SERVERS = {
     "mcpServers": {
@@ -93,21 +142,14 @@ MCP_SERVERS = {
             "args": ["--from", "analytics-mcp", "google-analytics-mcp"],
             "env": {
                 **os.environ,
-                "GOOGLE_APPLICATION_CREDENTIALS": str(
-                    Path(os.getenv("GOOGLE_APPLICATION_CREDENTIALS")).resolve()
-                ),
+                "GOOGLE_APPLICATION_CREDENTIALS": get_google_credentials_path(),
                 "GOOGLE_CLOUD_PROJECT": os.getenv("GOOGLE_CLOUD_PROJECT"),
             },
         },
         "playwright": {
             "command": "npx",
-            "args": [
-                "-y",
-                "@playwright/mcp@latest",
-                "--browser",
-             "chrome"
-            ]
-        }
+            "args": ["-y", "@playwright/mcp@latest", "--browser", "chrome"],
+        },
     }
 }
 
@@ -167,12 +209,18 @@ def edit_decision(args):
     path = REPORTS_DIR / "draft.json"
     path.write_text(json.dumps(args, ensure_ascii=False, indent=2), encoding="utf-8")
     edited = read_edited_draft(path)
-    return {"type": "edit", "edited_action": {"name": "create_dashboard", "args": edited}}
+    return {
+        "type": "edit",
+        "edited_action": {"name": "create_dashboard", "args": edited},
+    }
 
 
 def reject_decision():
     feedback = input("What should change? ").strip()
-    return {"type": "reject", "message": feedback or "The user rejected this dashboard."}
+    return {
+        "type": "reject",
+        "message": feedback or "The user rejected this dashboard.",
+    }
 
 
 def ask_decision(args):
@@ -195,7 +243,9 @@ async def run_turn(agent, question, config):
     while response.get("__interrupt__"):
         requests = response["__interrupt__"][0].value["action_requests"]
         decisions = [ask_decision(request["args"]) for request in requests]
-        response = await agent.ainvoke(Command(resume={"decisions": decisions}), config=config)
+        response = await agent.ainvoke(
+            Command(resume={"decisions": decisions}), config=config
+        )
     return response
 
 

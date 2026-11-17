@@ -1,0 +1,22 @@
+
+{
+  "cases": [
+    {
+      "id": "SERP-001",
+      "category": "ranking_interpretation",
+      "input": {
+        "average_position": 4.8
+      },
+      "expected": {
+        "interpretation": "approximately fifth position",
+        "is_first_page": true
+      },
+      "invalid_claims": [
+        "page four",
+        "page five",
+        "fourth page",
+        "fifth page"
+      ]
+    }
+  ]
+}
