@@ -28,6 +28,7 @@ using the project's reporting architecture.
 - **Memory** – the agent remembers the conversation. "New chat" starts a fresh one.
 - **To-do planning** – for multi-step work the agent writes a plan and ticks it off as it goes.
 - **HTML dashboards** – KPIs, charts, tables and recommendations in one downloadable file.
+- **Human-in-the-Loop (HITL)** – pauses dashboard generation for human review, allowing users to approve, edit, or reject proposed reports before execution.
 - **Gradio web UI** – streaming answers, tool steps you can expand, a live to-do panel, light and dark mode.
 
 ## Prerequisites
@@ -181,7 +182,6 @@ The agent never creates a dashboard on its own. Before `create_dashboard` runs, 
 - "Which pages lost the most clicks this month?"
 - "Open my homepage and check its title, meta description and headings."
 - "Build a full SEO dashboard for my main site."
-- "سایت من در ۲۸ روز گذشته چطور عمل کرده است؟"
 
 ## Project structure
 
